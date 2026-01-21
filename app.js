@@ -47,7 +47,7 @@ app.post('/create', async(req,res)=>{
     })
        
 
-    const token =  jwt.sign({username, userid: user._id},'hello')
+    const token =  jwt.sign({username, userid: user._id},process.env.JWT_SECRET)
     res.cookie('token',token)
 
     
@@ -61,7 +61,7 @@ app.get('/login',  (req,res)=>{
 app.post('/login',async (req,res)=>{
     const {username,password}= req.body
     const user = await usermodel.findOne({username})
-     const token =  jwt.sign({username, userid: user._id},'hello')
+     const token =  jwt.sign({username, userid: user._id},process.env.JWT_SECRET)
     res.cookie('token',token)
 
   let match = await bcrypt.compare(password,user.password)
@@ -83,7 +83,7 @@ app.get('/deleteall',async(req,res)=>{
 function isloggedin (req,res,next){
     
     if(!req.cookies.token) return res.status(401).send('login first')
-        const data = jwt.verify(req.cookies.token,'hello')
+        const data = jwt.verify(req.cookies.token,process.env.JWT_SECRET)
 
         req.user= data
         next()
