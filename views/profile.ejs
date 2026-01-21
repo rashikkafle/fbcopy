@@ -22,21 +22,16 @@
    </div>
 <form class="m-2 p-3 bg-zinc-100" action="/upload" method="post" enctype="multipart/form-data">
 
-        <label for="photo">
-                select your profilepic          
-        </label>
-                    <input type="file" name="profilepic" id="photo" required hidden>
+       
+                    <input type="file" name="profilepic" id="photo" required >
 
         <input class="bg-blue-200 p-1 rounded-md" type="submit" value="upload">
         
 </form>
 
     <form class="m-2 p-3 bg-zinc-100 " action="/post" method="post" enctype="multipart/form-data">
-        <label for="photo">
-            here->   ( Select) a photo to post
-        </label>
         <textarea class="resize-none bg-white p-1 w-70 h-10 rounded-md"  placeholder="Thinking about something?" name="review"  required></textarea>
-                <input type="file" id="photo" name="photo" value="Choose image" required hidden>
+                <input type="file" id="photos" name="photo" value="Choose image" required >
 
         <input class="bg-blue-200 p-1 rounded-md" type="submit" value="post">
         

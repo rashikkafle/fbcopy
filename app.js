@@ -1,3 +1,4 @@
+require('dotenv').config();  // load .env variables
 const express = require('express')
 const app = express()
 const usermodel = require('./models/user')
@@ -7,6 +8,7 @@ const bcrypt = require('bcryptjs')
 const cookieparser = require('cookie-parser')
 const upload = require('./multer')
 const user = require('./models/user')
+const mongoose =require('mongoose')
 
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
@@ -15,7 +17,14 @@ app.use(express.static('public'))
 
 app.set('view engine','ejs')
 
-app.get('/',(req,res)=>{
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log("✅ MongoDB connected successfully!"))
+  .catch(err => console.log("❌ MongoDB connection error:", err));
+
+
+
+
+app.get('/',(req,res)=>{ 
     res.render('index')
 })
 
