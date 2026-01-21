@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-zinc-100">
+   <div class="w-120 mx-110 bg-white rounded-md">
+      <div class="m-2 flex">
+             
+    <p class="p-2">  welcome <%= ab %>  </p>
+    <img class="h-7 rounded-4xl  m-1 p-1" src="/images/uploads/<%=user.profilepic  %>">
+    <form  action="/search" method="get">
+        <input class="border-zinc-300 p-1 border-2 rounded-md m-1" type="text" name="q" placeholder="Search" required>
+        <input type="submit" value="Search">
+        
+</form>
+
+   </div>
+<form class="m-2 p-3 bg-zinc-100" action="/upload" method="post" enctype="multipart/form-data">
+
+        <label for="photo">
+                select your profilepic          
+        </label>
+                    <input type="file" name="profilepic" id="photo" required hidden>
+
+        <input class="bg-blue-200 p-1 rounded-md" type="submit" value="upload">
+        
+</form>
+
+    <form class="m-2 p-3 bg-zinc-100 " action="/post" method="post" enctype="multipart/form-data">
+        <label for="photo">
+            here->   ( Select) a photo to post
+        </label>
+        <textarea class="resize-none bg-white p-1 w-70 h-10 rounded-md"  placeholder="Thinking about something?" name="review"  required></textarea>
+                <input type="file" id="photo" name="photo" value="Choose image" required hidden>
+
+        <input class="bg-blue-200 p-1 rounded-md" type="submit" value="post">
+        
+</form>
+
+
+
+
+
+<% posts.forEach(post => { %>
+        <div class="border-2 border-zinc-300 m-2 rounded-md">
+
+    <p class="border-2 border-zinc-300 m-3 p-1 rounded-md">
+      <%= post.user.username %>    : <%= post.review %></p>
+             <img class=" p-2" src="/images/uploads/<%=post.photo  %>">
+
+             <% if(ab === post.user.username){ %>
+               <a class="p-1 m-1 text-red-300" href="/delete/<%= post._id %> ">Delete</a>
+           <% } %> 
+             </div>
+
+            
+  <% } )%>
+ 
+    
+
+  </div>
+  
+</body>
+</html>

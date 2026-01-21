@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-zinc-100">
+    <div class=" bg-zinc-300 mx-110 mt-40 h-80 w-80 rounded-md border-2 border-zinc-400">
+        <p class="text-zinc-100 p-2">Enter following detail for login</p>
+        <form action="/login" method="post">
+            <input class="bg-zinc-400 text-white border-zinc-800 m-3 p-2 rounded-md" type="text" placeholder="Enter your username" name="username" required>
+            <input class="bg-zinc-400 text-white border-zinc-800 m-3 p-2 rounded-md" type="text" placeholder="Enter your email" name="email" required>
+            <input class="bg-zinc-400 text-white border-zinc-800 m-3 p-2 rounded-md" type="text" placeholder="Enter your password" name="password" required>
+            <input class="bg-zinc-400 text-white border-zinc-800 m-3 p-2 rounded-md" type="submit" value="Login">
+        </form>
+        <p class="text-zinc-100 p-2">Don't have a account?</p>
+        <a class="text-blue-300 p-2" href="">Signup</a>
+    </div>
+</body>
+</html>

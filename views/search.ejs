@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <title>Document</title>
+</head>
+<body class="w-110 mx-80 bg-zinc-100 p-2">
+  <div>
+    
+  <h2>Search Results:</h2>
+<ul>
+  <% if (usersk.length > 0) { %>
+    <% usersk.forEach(user => { %>
+     <div class="bg-white rounded-md px-1">
+       <li>
+      <a class="" href="/user/<%= user._id%>"> <li><%= user.username %> </a>
+      </li>
+     </div>
+
+    <% }) %>
+  <% } else { %>
+    <li>No users found</li>
+  <% } %>
+</ul>
+  </div>
+</body>
+</html>

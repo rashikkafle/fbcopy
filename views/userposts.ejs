@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-zinc-100"> 
+
+  <div class="w-110 mx-100 bg-white "> 
+       <p class="p-1"> <%= user.username%></p> 
+
+    <% post.forEach(post => { %>
+      <div class=" p-1 m-2 rounded-md  border-2 border-zinc-300 bg-white" >
+        <p class="border-zinc-300 border-2 p-1 rounded-md"><%= user.username %>    : <%= post.review %>  </p>
+        <img class=" p-2" src="/images/uploads/<%=post.photo  %>">
+
+      </div>
+    
+
+
+  <% } )%>
+
+  </div>
+  
+    
+</body>
+</html>
